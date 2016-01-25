@@ -78,6 +78,7 @@ import Data.Proxy(Proxy(..))
 import Internal.Static
 import Control.Arrow((***))
 import Text.Printf
+import Data.Type.Equality ((:~:)(..))
 
 ud1 :: R n -> Vector ℝ
 ud1 (R (Dim v)) = v
@@ -444,11 +445,10 @@ exactLength
     :: forall n m . (KnownNat n, KnownNat m)
     => R m
     -> Maybe (R n)
-exactLength v
-    | natVal (Proxy :: Proxy n) == natVal (Proxy :: Proxy m)
-        = Just (mkR (unwrap v))
-    | otherwise
-        = Nothing
+exactLength v =
+    case sameNat (Proxy :: Proxy n) (Proxy :: Proxy m) of
+      Just Refl -> Just v
+      Nothing   -> Nothing
 
 withMatrix
     :: forall z
@@ -470,12 +470,10 @@ exactDims
     :: forall n m j k . (KnownNat n, KnownNat m, KnownNat j, KnownNat k)
     => L m n
     -> Maybe (L j k)
-exactDims m
-    | natVal (Proxy :: Proxy m) == natVal (Proxy :: Proxy j)
-   && natVal (Proxy :: Proxy n) == natVal (Proxy :: Proxy k)
-        = Just (mkL (unwrap m))
-    | otherwise
-        = Nothing
+exactDims mat = do
+    Refl <- sameNat (Proxy :: Proxy m) (Proxy :: Proxy j)
+    Refl <- sameNat (Proxy :: Proxy n) (Proxy :: Proxy k)
+    return mat
 
 randomVector
     :: forall n . KnownNat n
