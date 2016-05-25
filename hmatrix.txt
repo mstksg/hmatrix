@@ -2249,3 +2249,5 @@ instance (GHC.TypeLits.KnownNat m, GHC.TypeLits.KnownNat n) => Internal.Util.Nor
 instance GHC.TypeLits.KnownNat n => GHC.Num.Num (Numeric.LinearAlgebra.Static.Sym n)
 instance GHC.TypeLits.KnownNat n => GHC.Real.Fractional (Numeric.LinearAlgebra.Static.Sym n)
 instance GHC.TypeLits.KnownNat n => GHC.Float.Floating (Numeric.LinearAlgebra.Static.Sym n)
+instance GHC.TypeLits.KnownNat n => Internal.Numeric.Additive (Numeric.LinearAlgebra.Static.Sym n)
+instance GHC.TypeLits.KnownNat n => Internal.Numeric.Transposable (Numeric.LinearAlgebra.Static.Sym n) (Numeric.LinearAlgebra.Static.Sym n)
