@@ -2153,6 +2153,7 @@ eye :: KnownNat n => Sq n
 diag :: KnownNat n => R n -> Sq n
 blockAt :: (KnownNat m, KnownNat n) => ℝ -> Int -> Int -> Matrix Double -> L m n
 matrix :: (KnownNat m, KnownNat n) => [ℝ] -> L m n
+type ℂ = Complex Double
 data C n
 data M m n
 data Her n
@@ -2206,6 +2207,8 @@ dvmap :: (Domain field vec mat, KnownNat n) => (field -> field) -> vec n -> vec 
 dmmap :: (Domain field vec mat, KnownNat m, KnownNat n) => (field -> field) -> mat n m -> mat n m
 outer :: (Domain field vec mat, KnownNat m, KnownNat n) => vec n -> vec m -> mat n m
 zipWithVector :: (Domain field vec mat, KnownNat n) => (field -> field -> field) -> vec n -> vec n -> vec n
+det :: (Domain field vec mat, KnownNat n) => mat n n -> field
+invlndet :: (Domain field vec mat, KnownNat n) => mat n n -> (mat n n, (field, field))
 withVector :: Vector ℝ -> (forall n. (KnownNat n) => R n -> z) -> z
 withMatrix :: Matrix ℝ -> (forall m n. (KnownNat m, KnownNat n) => L m n -> z) -> z
 
