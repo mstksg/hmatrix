@@ -2209,6 +2209,8 @@ outer :: (Domain field vec mat, KnownNat m, KnownNat n) => vec n -> vec m -> mat
 zipWithVector :: (Domain field vec mat, KnownNat n) => (field -> field -> field) -> vec n -> vec n -> vec n
 det :: (Domain field vec mat, KnownNat n) => mat n n -> field
 invlndet :: (Domain field vec mat, KnownNat n) => mat n n -> (mat n n, (field, field))
+expm :: (Domain field vec mat, KnownNat n) => mat n n -> mat n n
+sqrtm :: (Domain field vec mat, KnownNat n) => mat n n -> mat n n
 withVector :: Vector ℝ -> (forall n. (KnownNat n) => R n -> z) -> z
 withMatrix :: Matrix ℝ -> (forall m n. (KnownNat m, KnownNat n) => L m n -> z) -> z
 

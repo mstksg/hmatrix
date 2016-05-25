@@ -576,11 +576,22 @@
 <a name="line-567"></a>
 <a name="line-568"></a><span class='hs-comment'>--------------------------------------------------------------------------------</span>
 <a name="line-569"></a>
-<a name="line-570"></a><span class='hs-cpp'>#else</span>
-<a name="line-571"></a>
-<a name="line-572"></a><span class='hs-keyword'>module</span> <span class='hs-conid'>Numeric</span><span class='hs-varop'>.</span><span class='hs-conid'>LinearAlgebra</span><span class='hs-varop'>.</span><span class='hs-conid'>Static</span><span class='hs-varop'>.</span><span class='hs-conid'>Internal</span> <span class='hs-keyword'>where</span>
-<a name="line-573"></a>
-<a name="line-574"></a><span class='hs-cpp'>#endif</span>
-<a name="line-575"></a>
+<a name="line-570"></a><a name="overMatL'"></a><span class='hs-definition'>overMatL'</span> <span class='hs-keyglyph'>::</span> <span class='hs-layout'>(</span><span class='hs-conid'>KnownNat</span> <span class='hs-varid'>m</span><span class='hs-layout'>,</span> <span class='hs-conid'>KnownNat</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span>
+<a name="line-571"></a>          <span class='hs-keyglyph'>=&gt;</span> <span class='hs-layout'>(</span><span class='hs-conid'>LA</span><span class='hs-varop'>.</span><span class='hs-conid'>Matrix</span> <span class='hs-conid'>ℝ</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>LA</span><span class='hs-varop'>.</span><span class='hs-conid'>Matrix</span> <span class='hs-conid'>ℝ</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>L</span> <span class='hs-varid'>m</span> <span class='hs-varid'>n</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>L</span> <span class='hs-varid'>m</span> <span class='hs-varid'>n</span>
+<a name="line-572"></a><span class='hs-definition'>overMatL'</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>mkL</span> <span class='hs-varop'>.</span> <span class='hs-varid'>f</span> <span class='hs-varop'>.</span> <span class='hs-varid'>unwrap</span>
+<a name="line-573"></a><span class='hs-comment'>{-# INLINE overMatL' #-}</span>
+<a name="line-574"></a>
+<a name="line-575"></a><a name="overMatM'"></a><span class='hs-definition'>overMatM'</span> <span class='hs-keyglyph'>::</span> <span class='hs-layout'>(</span><span class='hs-conid'>KnownNat</span> <span class='hs-varid'>m</span><span class='hs-layout'>,</span> <span class='hs-conid'>KnownNat</span> <span class='hs-varid'>n</span><span class='hs-layout'>)</span>
+<a name="line-576"></a>          <span class='hs-keyglyph'>=&gt;</span> <span class='hs-layout'>(</span><span class='hs-conid'>LA</span><span class='hs-varop'>.</span><span class='hs-conid'>Matrix</span> <span class='hs-conid'>ℂ</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>LA</span><span class='hs-varop'>.</span><span class='hs-conid'>Matrix</span> <span class='hs-conid'>ℂ</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>M</span> <span class='hs-varid'>m</span> <span class='hs-varid'>n</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>M</span> <span class='hs-varid'>m</span> <span class='hs-varid'>n</span>
+<a name="line-577"></a><span class='hs-definition'>overMatM'</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>mkM</span> <span class='hs-varop'>.</span> <span class='hs-varid'>f</span> <span class='hs-varop'>.</span> <span class='hs-varid'>unwrap</span>
+<a name="line-578"></a><span class='hs-comment'>{-# INLINE overMatM' #-}</span>
+<a name="line-579"></a>
+<a name="line-580"></a>
+<a name="line-581"></a><span class='hs-cpp'>#else</span>
+<a name="line-582"></a>
+<a name="line-583"></a><span class='hs-keyword'>module</span> <span class='hs-conid'>Numeric</span><span class='hs-varop'>.</span><span class='hs-conid'>LinearAlgebra</span><span class='hs-varop'>.</span><span class='hs-conid'>Static</span><span class='hs-varop'>.</span><span class='hs-conid'>Internal</span> <span class='hs-keyword'>where</span>
+<a name="line-584"></a>
+<a name="line-585"></a><span class='hs-cpp'>#endif</span>
+<a name="line-586"></a>
 </pre></body>
 </html>
