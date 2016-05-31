@@ -49,7 +49,7 @@ library
                         Numeric.LinearAlgebra.Devel
                         Numeric.LinearAlgebra.Data
                         Numeric.LinearAlgebra.HMatrix
-                        Numeric.LinearAlgebra.Static
+                        -- Numeric.LinearAlgebra.Static
 
     other-modules:      Internal.Vector
                         Internal.Devel
