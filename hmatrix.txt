@@ -2194,7 +2194,7 @@ randn :: (KnownNat m, KnownNat n) => IO (L m n)
 gaussianSample :: (KnownNat m, KnownNat n) => Seed -> R n -> Sym n -> L m n
 uniformSample :: (KnownNat m, KnownNat n) => Seed -> R n -> R n -> L m n
 mean :: (KnownNat n, 1 <= n) => R n -> ℝ
-meanCov :: (KnownNat m, KnownNat n) => L m n -> (R n, Sym n)
+meanCov :: (KnownNat m, KnownNat n, 1 <= m) => L m n -> (R n, Sym n)
 class Disp t
 disp :: Disp t => Int -> t -> IO ()
 class Domain field vec mat | mat -> vec field, vec -> mat field, field -> mat vec
@@ -2211,6 +2211,7 @@ det :: (Domain field vec mat, KnownNat n) => mat n n -> field
 invlndet :: (Domain field vec mat, KnownNat n) => mat n n -> (mat n n, (field, field))
 expm :: (Domain field vec mat, KnownNat n) => mat n n -> mat n n
 sqrtm :: (Domain field vec mat, KnownNat n) => mat n n -> mat n n
+inv :: (Domain field vec mat, KnownNat n) => mat n n -> mat n n
 withVector :: Vector ℝ -> (forall n. (KnownNat n) => R n -> z) -> z
 withMatrix :: Matrix ℝ -> (forall m n. (KnownNat m, KnownNat n) => L m n -> z) -> z
 
